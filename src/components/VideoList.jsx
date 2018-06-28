@@ -3,10 +3,12 @@
 var VideoList = (props) => (
 
   // console.log('theLength')
-  <div className="video-list">
-    {props.videos.map(video =>
-      <VideoListEntry video={video}/>)}
-  </div>
+  <a href='#'>
+    <div className="video-list" onClick={props.onClick}>
+      {props.videos.map(video =>
+        <VideoListEntry video={video}/>)}
+    </div>
+  </a>
     
 );
 
