@@ -7,10 +7,13 @@ class App extends React.Component{
   } 
 
   chooseVideo (video) {
-    console.log(video);
     this.setState ({
       mainVideo : video
     });
+  }
+
+  searchVideo () {
+    console.log('hello!');
   }
 
   render() {
@@ -18,7 +21,7 @@ class App extends React.Component{
       <div>
         <nav className="navbar">
           <div className="col-md-6 offset-md-3">
-            <Search />
+            <Search search={this.chooseVideo} onClick={this.searchVideo.bind(this)}/>
           </div>
         </nav>
         <div className="row">
