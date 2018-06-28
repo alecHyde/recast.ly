@@ -1,6 +1,6 @@
 class App extends React.Component{ 
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       mainVideo : exampleVideoData[0]
     };
@@ -23,10 +23,11 @@ class App extends React.Component{
         </nav>
         <div className="row">
           <div className="col-md-7">
-            <VideoPlayer video={this.state.mainVideo} onClick={this.chooseVideo.bind(this)} />
+            <VideoPlayer video={this.state.mainVideo} />
           </div>
           <div className="col-md-5">
-            <VideoList videos={exampleVideoData} onClick={this.chooseVideo.bind(this)}/>
+          debugger;
+            <VideoList videos={exampleVideoData} onClick={(video) => this.chooseVideo(video)}/>
           </div>
         </div>
       </div>
