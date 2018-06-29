@@ -1,14 +1,13 @@
 var Search = (props) => (
   <div className="search-bar form-inline">
-    <input className="form-control" type="text"  onChange={() => {console.log(value);}}/>
-    <button className="btn hidden-sm-down" onClick={(event) => {
-      console.log(props.search($('.form-control').val()));
+    <input className="form-control" type="text"  onChange={() => {props.search($('.form-control').val());}}/>
+    <button className="btn hidden-sm-down" 
       // pass in stateful functions from App.js
       // pass function from App
 
       // props.search($('.form-control').val())
 
-    }}>
+    >
       <span className="glyphicon glyphicon-search"></span>
     </button>
   </div> 

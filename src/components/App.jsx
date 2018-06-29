@@ -2,7 +2,8 @@ class App extends React.Component{
   constructor() {
     super();
     this.state = {
-      mainVideo : exampleVideoData[0]
+      mainVideo : exampleVideoData[0],
+      videoList: exampleVideoData
     };
   } 
 
@@ -12,8 +13,19 @@ class App extends React.Component{
     });
   }
 
-  searchVideo () {
-    console.log('hello!');
+  handleData (data) {
+    this.setState ({
+      videoList : data
+    });
+  }
+
+  searchVideo (val) {
+    var options = {
+      key: YOUTUBE_API_KEY,
+      maxResults: 5,
+      q: val,
+    };
+    searchYouTube(options, this.handleData.bind(this));
   }
 
   render() {
@@ -21,7 +33,7 @@ class App extends React.Component{
       <div>
         <nav className="navbar">
           <div className="col-md-6 offset-md-3">
-            <Search search={this.chooseVideo} onClick={this.searchVideo.bind(this)}/>
+            <Search search={this.searchVideo.bind(this)} />
           </div>
         </nav>
         <div className="row">
@@ -30,7 +42,7 @@ class App extends React.Component{
           </div>
           <div className="col-md-5">
           debugger;
-            <VideoList videos={exampleVideoData} onClick={(video) => this.chooseVideo(video)}/>
+            <VideoList videos={this.state.videoList} onClick={(video) => this.chooseVideo(video)}/>
           </div>
         </div>
       </div>
